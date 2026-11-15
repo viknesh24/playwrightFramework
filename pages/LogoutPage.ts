@@ -1,5 +1,5 @@
 import { Page, Locator } from '@playwright/test';
-import { Homepage } from './HomePage';
+import { HomePage } from './HomePage';
 
 
 export class LogoutPage {
@@ -17,9 +17,9 @@ export class LogoutPage {
      * Clicks the Continue button after logout
      * @returns Promise<HomePage> - Returns instance of HomePage
      */
-    async clickContinue(): Promise<Homepage> {
+    async clickContinue(): Promise<HomePage> {
         await this.btnContinue.click();
-        return new Homepage(this.page);
+        return new HomePage(this.page);
     }
 
      /**

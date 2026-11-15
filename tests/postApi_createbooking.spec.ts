@@ -28,7 +28,7 @@ expect(response.status()).toBe(200)
 const booking = responseBody.booking
 
  expect(booking).toMatchObject({
-        firstname: "Jim",
+        firstname: "Afsal",
         lastname: "Brown",
         totalprice: 1000,
         depositpaid: true,

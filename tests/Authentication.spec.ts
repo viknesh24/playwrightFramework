@@ -42,7 +42,8 @@ test('Basic Auth - HTTPBin', async ({ request }) => {
 // 3. Bearer Token Auth (Get github user repositories)
 
 test('Verify Bearer Token Authentication', async ({ request }) => {
-  const bearerToken = "REDACTED_GITHUB_TOKEN";
+  const bearerToken = process.env.GITHUB_TOKEN;
+  test.skip(!bearerToken, 'Set GITHUB_TOKEN to verify GitHub bearer authentication.');
 
   const response = await request.get('https://api.github.com/user/repos', {
     headers: {
@@ -58,7 +59,9 @@ test('Verify Bearer Token Authentication', async ({ request }) => {
 // 3.1. Bearer Token Auth (Get github user info)
 
 test('Bearer Token Auth', async ({ request }) => {
-  const token = 'REDACTED_GITHUB_TOKEN'; // Replace with a real token
+  const token = process.env.GITHUB_TOKEN;
+  test.skip(!token, 'Set GITHUB_TOKEN to verify GitHub token auth.');
+
   const response = await request.get('https://api.github.com/user', {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -73,10 +76,13 @@ test('Bearer Token Auth', async ({ request }) => {
 // 4. API Key Authentication
 // https://openweathermap.org/current
 test('Verify API Key Authentication', async ({ request }) => {
+  const openWeatherApiKey = process.env.OPEN_WEATHER_API_KEY;
+  test.skip(!openWeatherApiKey, 'Set OPEN_WEATHER_API_KEY to verify OpenWeather API key auth.');
+
   const response = await request.get('https://api.openweathermap.org/data/2.5/weather', {
     params: {
       q: 'Delhi',
-      appid: 'fe9c5cddb7e01d747b4611c3fc9eaf2c', // <-- hardcoded API key
+      appid: openWeatherApiKey,
     },
   });
 
@@ -94,8 +100,11 @@ test('Verify API Key Authentication', async ({ request }) => {
 //API Key (14 days trial)  
 
 test('API Key Auth - Header', async ({ request }) => {
+  const weatherApiKey = process.env.WEATHER_API_KEY;
+  test.skip(!weatherApiKey, 'Set WEATHER_API_KEY to verify weather API auth.');
+
   const response = await request.get('https://api.weatherapi.com/v1/current.json', {
-    params: { q: 'India', key: '59f38ebe55d5436ca0552856250606' },
+    params: { q: 'India', key: weatherApiKey },
   });
   expect(response.status()).toBe(200);
   const data = await response.json();
