@@ -1,0 +1,29 @@
+{
+  bookingid: 3648,
+  booking: {
+    firstname: 'Jim',
+    lastname: 'Brown',
+    totalprice: 1000,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-07-01', checkout: '2025-07-05' },
+    additionalneeds: 'super bowls'
+  }
+}
+Booking id======> 3648
+Token ======> 5f54cd5970feaca
+partial response body {
+  firstname: 'Scott',
+  lastname: 'Tiger',
+  totalprice: 1000,
+  depositpaid: true,
+  bookingdates: { checkin: '2025-07-01', checkout: '2025-07-05' },
+  additionalneeds: 'mango'
+}
+get response body {
+  firstname: 'Scott',
+  lastname: 'Tiger',
+  totalprice: 1000,
+  depositpaid: true,
+  bookingdates: { checkin: '2025-07-01', checkout: '2025-07-05' },
+  additionalneeds: 'mango'
+}
