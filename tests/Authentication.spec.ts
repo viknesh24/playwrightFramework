@@ -5,7 +5,7 @@
 3) Bearer Token
 4) API Key (in header or query)
 
-*/
+
 
 
 import { test, expect } from '@playwright/test';
@@ -111,3 +111,4 @@ test('API Key Auth - Header', async ({ request }) => {
   console.log(data);
 });
 
+*/
